@@ -38,6 +38,12 @@ header .foto{
 header .titulo{
     text-align: center;
 }
+.main{
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #000000;
+    border-radius: 1rem;
+}
 .informacao{
     display: flex;
     flex-direction: column;
@@ -109,4 +115,157 @@ a:hover{
 }
 .janela .abrir:hover{
     cursor: pointer;
+}
+.janela .abrir::after{
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.5rem;
+    background-image: url(../img/arrow-top.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.25s;
+}
+.janela.open .abrir::after{
+    transform: rotate(180deg);
+}
+.janela .conteudo{
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    overflow: hidden;
+}
+.janela.open .conteudo{
+    display: block;
+    padding: 0 1rem 1rem 2rem;
+    height: auto;
+    opacity: 1;
+}
+.skills{
+    display: flex;
+    flex-direction: column;
+}
+.skills .ferramentas ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#hardSkills li img{
+    width: 100px;
+}
+.skills .ferramentas ul li img{
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 0.5rem;
+}
+.skills .pessoal ul li{
+    margin-left: 2rem;
+    padding: 0.5rem;
+}
+.experiencia{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.experiencia li{
+    margin-bottom: 1rem;
+}
+.idiomas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.idiomas li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 1rem;
+    font-weight: 700;
+}
+.idiomas li::before{
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url(../img/check.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5rem;
+}
+.potifolio{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.potifolio li{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1rem 0;
+}
+.potifolio li h3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+.potifolio li h3.github::before{
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url(../img/github.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5rem;
+}
+@media screen and (min-width:760px){
+    header{
+        display: grid;
+        grid-template-areas: 
+        "foto titulo"
+        "foto informacao";
+    }
+    header .foto{
+        grid-area: foto;
+        margin: 0 auto;
+    }
+    header .titulo{
+        grid-area: titulo;
+        text-align: center;
+        max-width: 210px;
+    }
+    header .informacao{
+        grid-area: informacao;
+    }
+    .main{
+        max-width: 1024px;
+        margin: 1rem auto;
+    }
+    .main::before,
+    .main::after{
+        width: 70vw;
+    }
+    .skills{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
